@@ -14,10 +14,13 @@ all: static shared
 $(ODIR)/%.o: $(SDIR)/%.cpp
 	$(CC) -c $(INC) -o $@ $< $(CFLAGS)
 
-static: $(OBJS)
+$(ODIR)/miniz.o: include/miniz/miniz.c
+	$(CC) -c -o $(ODIR)/miniz.o include/miniz/miniz.c $(CFLAGS)
+
+static: $(ODIR)/miniz.o $(OBJS)
 	ar rvs $(OUT).a $^
 
-shared: $(OBJS)
+shared: $(ODIR)/miniz.o $(OBJS)
 	$(CC) -o $(OUT).so $(ODIR)/*.o $(CFLAGS) -shared $(INC)
 
 .PHONY: clean

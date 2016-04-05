@@ -1,12 +1,8 @@
 #include <algorithm>
 #include <functional>
 
-#ifdef USE_MINIZ
 #define MINIZ_HEADER_FILE_ONLY
-#include "miniz.c"
-#else
-#include <zlib.h>
-#endif
+#include "miniz/miniz.c"
 
 #include "Util.hpp"
 #include "base64/base64.h"

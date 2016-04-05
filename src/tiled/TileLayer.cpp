@@ -3,12 +3,8 @@
 #include <string.h>
 #include <algorithm>
 
-#ifdef USE_MINIZ
 #define MINIZ_HEADER_FILE_ONLY
-#include "miniz.c"
-#else
-#include <zlib.h>
-#endif
+#include "miniz/miniz.c"
 
 #include <stdlib.h>
 #include <stdio.h>
