@@ -12,31 +12,32 @@ Properties::~Properties()
 
 void Properties::set(const std::string& name, bool value)
 {
-    p_bag[name] = Value(value);
+    set(name, Value(value));
 }
 
 void Properties::set(const std::string& name, int value)
 {
-    p_bag[name] = Value(value);
+    set(name, Value(value));
 }
 
 void Properties::set(const std::string& name, float value)
 {
-    p_bag[name] = Value(value);
+    set(name, Value(value));
 }
 
 void Properties::set(const std::string& name, const std::string& value)
 {
-    p_bag[name] = Value(value);
+    set(name, Value(value));
 }
 
 void Properties::set(const std::string& name, const char* value)
 {
-    p_bag[name] = Value(std::string(value));
+    set(name, Value(std::string(value)));
 }
 
 void Properties::set(const std::string& name, const Value& value)
 {
+    p_keys.insert(name);
     p_bag[name] = value;
 }
 
@@ -50,8 +51,14 @@ const Value& Properties::get(const std::string& name) const
     return it->second;
 }
 
+const std::set<std::string>& Properties::keys() const
+{
+    return p_keys;
+}
+
 void Properties::clear()
 {
     p_bag.clear();
+    p_keys.clear();
 }
 } /* tiled */

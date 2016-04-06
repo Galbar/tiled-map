@@ -826,9 +826,9 @@ void load(Map& map, lua_State* L)
 
     getLayers(L, map);
 
-    //getTilesets(L, map.getTilesets());
+    getTilesets(L, map.getTilesets());
 
-    //getProperties(L, map.getProperties());
+    getProperties(L, map.getProperties());
 }
 }
 }
