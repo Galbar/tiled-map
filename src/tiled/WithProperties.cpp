@@ -4,6 +4,12 @@ namespace tiled
 {
 namespace priv
 {
+WithProperties::WithProperties()
+{}
+
+WithProperties::~WithProperties()
+{}
+
 void WithProperties::setProperties(const Properties& properties)
 {
     p_properties = properties;

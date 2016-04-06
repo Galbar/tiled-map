@@ -9,7 +9,7 @@ class Image
 {
 public:
     Image();
-    ~Image();
+    virtual ~Image();
 
     void setWidth(int width);
     int getWidth() const;

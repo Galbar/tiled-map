@@ -22,18 +22,6 @@ Map::~Map()
     {
         delete layer;
     }
-    for(TileLayer* tile_layer : p_tile_layers)
-    {
-        delete tile_layer;
-    }
-    for(ImageLayer* image_layer : p_image_layers)
-    {
-        delete image_layer;
-    }
-    for(ObjectLayer* object_layer : p_object_layers)
-    {
-        delete object_layer;
-    }
     for(Tileset* tileset : p_tileset)
     {
         delete tileset;

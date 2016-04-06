@@ -403,18 +403,18 @@ void getLayers(lua_State* L, Map& map)
                         map.getLayers().push_back(layer);
                         map.getTileLayers().push_back(layer);
                     }
-                    else if (value.getString() == "imagelayer")
-                    {
-                        ImageLayer* layer = getImageLayer(L);
-                        map.getLayers().push_back(layer);
-                        map.getImageLayers().push_back(layer);
-                    }
-                    else if (value.getString() == "objectgroup")
-                    {
-                        ObjectLayer* layer = getObjectLayer(L);
-                        map.getLayers().push_back(layer);
-                        map.getObjectLayers().push_back(layer);
-                    }
+                    //else if (value.getString() == "imagelayer")
+                    //{
+                    //    ImageLayer* layer = getImageLayer(L);
+                    //    map.getLayers().push_back(layer);
+                    //    map.getImageLayers().push_back(layer);
+                    //}
+                    //else if (value.getString() == "objectgroup")
+                    //{
+                    //    ObjectLayer* layer = getObjectLayer(L);
+                    //    map.getLayers().push_back(layer);
+                    //    map.getObjectLayers().push_back(layer);
+                    //}
                 }
             }
             lua_pop(L, 1);
@@ -682,6 +682,10 @@ void getTilesets(lua_State* L, std::vector<Tileset*>& tilesets)
 }
 
 
+namespace tiled
+{
+namespace lua
+{
 void load(Map& map, lua_State* L)
 {
     Value value;
@@ -822,7 +826,9 @@ void load(Map& map, lua_State* L)
 
     getLayers(L, map);
 
-    getTilesets(L, map.getTilesets());
+    //getTilesets(L, map.getTilesets());
 
-    getProperties(L, map.getProperties());
+    //getProperties(L, map.getProperties());
+}
+}
 }

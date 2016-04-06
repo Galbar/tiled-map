@@ -14,7 +14,7 @@ class Tileset : public priv::WithProperties
 {
 public:
     Tileset();
-    ~Tileset();
+    virtual ~Tileset();
 
     void setGId(int first_g_id);
     int getGId() const;

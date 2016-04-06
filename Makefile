@@ -17,10 +17,13 @@ $(ODIR)/%.o: $(SDIR)/%.cpp
 $(ODIR)/miniz.o: include/miniz/miniz.c
 	$(CC) -c -o $(ODIR)/miniz.o include/miniz/miniz.c $(CFLAGS)
 
-static: $(ODIR)/miniz.o $(OBJS)
+$(ODIR)/base64.o: src/base64/base64.cpp
+	$(CC) -c $(INC) -o $(ODIR)/base64.o src/base64/base64.cpp $(CFLAGS)
+
+static: $(ODIR)/base64.o $(ODIR)/miniz.o $(OBJS)
 	ar rvs $(OUT).a $^
 
-shared: $(ODIR)/miniz.o $(OBJS)
+shared: $(ODIR)/base64.o $(ODIR)/miniz.o $(OBJS)
 	$(CC) -o $(OUT).so $(ODIR)/*.o $(CFLAGS) -shared $(INC)
 
 .PHONY: clean

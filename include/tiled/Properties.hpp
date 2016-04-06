@@ -9,6 +9,7 @@ namespace tiled
 class Properties
 {
 public:
+    Properties();
     virtual ~Properties();
     void set(const std::string& name, bool value);
     void set(const std::string& name, int value);
@@ -20,7 +21,7 @@ public:
     void clear();
 
 private:
-    Value p_none;
+    static Value s_p_none;
     std::unordered_map<std::string, Value> p_bag;
 };
 } /* tiled */

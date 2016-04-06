@@ -10,7 +10,7 @@ class Layer : public priv::WithProperties
 {
 public:
     enum class LayerType { TILE_LAYER, IMAGE_LAYER, OBJECT_LAYER, COUNT };
-    ~Layer();
+    virtual ~Layer();
 
     void setWidth(int width);
     int getWidth() const;

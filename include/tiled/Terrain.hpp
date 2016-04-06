@@ -11,7 +11,7 @@ class Terrain : public priv::WithProperties
 {
 public:
     Terrain();
-    ~Terrain();
+    virtual ~Terrain();
 
     void setTile(int tile);
     int getTile() const;

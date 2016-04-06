@@ -21,7 +21,7 @@ public:
     enum class StaggerAxis { NONE, X, Y, COUNT };
     enum class StaggerIndex { NONE, ODD, EVEN, COUNT };
     Map();
-    ~Map();
+    virtual ~Map();
 
     int findTilesetIndex(int gid) const;
 

@@ -12,7 +12,7 @@ class ObjectLayer : public Layer
 public:
     enum class DrawOrder { INDEX, TOPDOWN, COUNT };
     ObjectLayer();
-    ~ObjectLayer();
+    virtual ~ObjectLayer();
 
     void setDrawOrder(DrawOrder draw_order);
     DrawOrder getDrawOrder() const;

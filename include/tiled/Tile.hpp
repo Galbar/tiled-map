@@ -14,7 +14,7 @@ class Tile : public priv::WithProperties
 {
 public:
     Tile();
-    ~Tile();
+    virtual ~Tile();
 
     void setId(int id);
     int getId() const;

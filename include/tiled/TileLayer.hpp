@@ -14,7 +14,7 @@ public:
     enum class Encoding { LUA, BASE64, COUNT };
     enum class Compression { NONE, ZLIB, GZIB, COUNT };
     TileLayer();
-    ~TileLayer();
+    virtual ~TileLayer();
 
     void setEncoding(Encoding encoding);
     Encoding getEncoding() const;

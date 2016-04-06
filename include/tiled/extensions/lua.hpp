@@ -1,6 +1,6 @@
 #ifndef TILED_EXTENSIONS_LUA_HPP
 #define TILED_EXTENSIONS_LUA_HPP
-#include "tiled.hpp"
+#include "tiled/tiled.hpp"
 
 extern "C"
 {

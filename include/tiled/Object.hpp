@@ -14,7 +14,7 @@ class Object : public priv::WithProperties
 public:
     enum class Shape { RECTANGLE, ELLIPSE, POLYGON, POLYLINE, COUNT };
     Object();
-    ~Object();
+    virtual ~Object();
 
     void setX(int x);
     int getX() const;

@@ -9,7 +9,7 @@ class ImageLayer : public Layer
 {
 public:
     ImageLayer();
-    ~ImageLayer();
+    virtual ~ImageLayer();
 
     void setImage(Image* image);
     Image* getImage();
