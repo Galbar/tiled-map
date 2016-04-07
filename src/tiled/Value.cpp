@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Value.hpp"
 
 namespace tiled
@@ -24,6 +25,14 @@ p_float_value(value)
 Value::Value(const std::string& value):
 p_type(Type::STRING),
 p_string_value(value)
+{}
+
+Value::Value(const Value& other):
+p_type(other.p_type),
+p_bool_value(other.p_bool_value),
+p_int_value(other.p_int_value),
+p_float_value(other.p_float_value),
+p_string_value(other.p_string_value)
 {}
 
 const char* Value::typeToString(Value::Type type)
@@ -64,6 +73,7 @@ bool Value::getBool() const
     {
         return p_bool_value;
     }
+    std::cerr << "Type is " << typeToString(p_type) << std::endl;
     throw WrongValueType();
 }
 
@@ -73,6 +83,7 @@ int Value::getInt() const
     {
         return p_int_value;
     }
+    std::cerr << "Type is " << typeToString(p_type) << std::endl;
     throw WrongValueType();
 }
 
@@ -82,6 +93,7 @@ float Value::getFloat() const
     {
         return p_float_value;
     }
+    std::cerr << "Type is " << typeToString(p_type) << std::endl;
     throw WrongValueType();
 }
 
@@ -91,6 +103,7 @@ const std::string& Value::getString() const
     {
         return p_string_value;
     }
+    std::cerr << "Type is " << typeToString(p_type) << std::endl;
     throw WrongValueType();
 }
 }

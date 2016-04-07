@@ -17,6 +17,7 @@ public:
     Value(int value);
     Value(float value);
     Value(const std::string& value);
+    Value(const Value& other);
     virtual ~Value();
     virtual Type getType() const;
     virtual bool getBool() const;
