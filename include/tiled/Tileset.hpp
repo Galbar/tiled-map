@@ -53,9 +53,9 @@ public:
     Image* getImage();
     const Image* getImage() const;
 
-    void setTiles(const std::vector<Tile*>& Tiles);
-    std::vector<Tile*>& getTiles();
-    const std::vector<Tile*>& getTiles() const;
+    void setTiles(const std::unordered_map<unsigned int, Tile*>& Tiles);
+    std::unordered_map<unsigned int, Tile*>& getTiles();
+    const std::unordered_map<unsigned int, Tile*>& getTiles() const;
 
     void setTerrains(const std::vector<Terrain*>& Terrains);
     std::vector<Terrain*>& getTerrains();
@@ -73,7 +73,7 @@ private:
         p_tile_offset_y;
     std::string p_name, p_file_name;
     Image* p_image;
-    std::vector<Tile*> p_tiles;
+    std::unordered_map<unsigned int, Tile*> p_tiles;
     std::vector<Terrain*> p_terrains;
 };
 } /* tiled */

@@ -403,18 +403,18 @@ void getLayers(lua_State* L, Map& map)
                         map.getLayers().push_back(layer);
                         map.getTileLayers().push_back(layer);
                     }
-                    //else if (value.getString() == "imagelayer")
-                    //{
-                    //    ImageLayer* layer = getImageLayer(L);
-                    //    map.getLayers().push_back(layer);
-                    //    map.getImageLayers().push_back(layer);
-                    //}
-                    //else if (value.getString() == "objectgroup")
-                    //{
-                    //    ObjectLayer* layer = getObjectLayer(L);
-                    //    map.getLayers().push_back(layer);
-                    //    map.getObjectLayers().push_back(layer);
-                    //}
+                    else if (value.getString() == "imagelayer")
+                    {
+                        ImageLayer* layer = getImageLayer(L);
+                        map.getLayers().push_back(layer);
+                        map.getImageLayers().push_back(layer);
+                    }
+                    else if (value.getString() == "objectgroup")
+                    {
+                        ObjectLayer* layer = getObjectLayer(L);
+                        map.getLayers().push_back(layer);
+                        map.getObjectLayers().push_back(layer);
+                    }
                 }
             }
             lua_pop(L, 1);
@@ -551,7 +551,7 @@ Tile* getTile(lua_State* L, Tileset* parent)
 }
 
 
-void getTiles(lua_State* L, std::vector<Tile*>& tiles, Tileset* parent)
+void getTiles(lua_State* L, std::unordered_map<unsigned int, Tile*>& tiles, Tileset* parent)
 {
     lua_pushstring(L, "tiles");
     lua_gettable(L, -2);
@@ -563,7 +563,7 @@ void getTiles(lua_State* L, std::vector<Tile*>& tiles, Tileset* parent)
             if(lua_istable(L, -1))
             {
                 Tile* tile = getTile(L, parent);
-                tiles.push_back(tile);
+                tiles[tile->getGId() - parent->getGId()] = tile;
             }
             lua_pop(L, 1);
         }

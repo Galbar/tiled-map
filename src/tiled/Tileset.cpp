@@ -14,9 +14,9 @@ Tileset::Tileset()
 Tileset::~Tileset()
 {
     delete p_image;
-    for(Tile* tile : p_tiles)
+    for(auto it : p_tiles)
     {
-        delete tile;
+        delete it.second;
     }
     for(Terrain* terrain : p_terrains)
     {
@@ -149,17 +149,17 @@ const Image* Tileset::getImage() const
     return p_image;
 }
 
-void Tileset::setTiles(const std::vector<Tile*>& Tiles)
+void Tileset::setTiles(const std::unordered_map<unsigned int, Tile*>& Tiles)
 {
     p_tiles = Tiles;
 }
 
-std::vector<Tile*>& Tileset::getTiles()
+std::unordered_map<unsigned int, Tile*>& Tileset::getTiles()
 {
     return p_tiles;
 }
 
-const std::vector<Tile*>& Tileset::getTiles() const
+const std::unordered_map<unsigned int, Tile*>& Tileset::getTiles() const
 {
     return p_tiles;
 }
